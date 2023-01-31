@@ -13,7 +13,7 @@
 <style>
 .parallax {
   /* The image used */
-  background-image: url("images/photographer-looking-out-at-a-sunrise.jpg");
+  background-image: url("images/exampleimage.jpg");
 
   /* Set a specific height */
   min-height: 500px; 
@@ -31,18 +31,17 @@
 </head>
 <body>
 
-<p>Scroll Up and Down this page to see the parallax scrolling effect.</p>
-
 <div class="parallax">
 <div class="text-center">
   <button type="button" onclick="alert('Hello world!')"> Login</button>
 </div>
 </div>
 
-<div style="height:1000px;background-color:#252525;font-size:24px">
-Scroll Up and Down this page to see the parallax scrolling effect.
-This div is just here to enable scrolling.
-Tip: Try to remove the background-attachment property to remove the scrolling effect.
+<div style="height:1150px;background-color:#252525;font-size:24px">
+Top Student Photography Examples
+<img src="images/photographer-looking-out-at-a-sunrise.jpg" alt="Top Photo Example 1">
+<img src="images/autumn-poolside.jpg" alt="Top Photo Example 2">
+<img src="images/The-best-nature-photography-collection.jpg" alt="Top Photo Example 3">
 </div>
 
 </body>
