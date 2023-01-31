@@ -1,10 +1,53 @@
-## AP CSA Tri 2 Period 2 Table 2
+<!-- ## AP CSA Tri 2 Period 2 Table 2
 
 ### [Scrum Board](https://github.com/users/PrishaB/projects/1)
 ### [Insights](https://github.com/PrishaB/Team2Reunion/graphs/contributors)
 
 
----
+--- -->
+
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+.parallax {
+  /* The image used */
+  background-image: url("images/photographer-looking-out-at-a-sunrise.jpg");
+
+  /* Set a specific height */
+  min-height: 500px; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.text-center {
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<p>Scroll Up and Down this page to see the parallax scrolling effect.</p>
+
+<div class="parallax">
+<div class="text-center">
+  <button type="button" onclick="alert('Hello world!')"> Login</button>
+</div>
+</div>
+
+<div style="height:1000px;background-color:#252525;font-size:24px">
+Scroll Up and Down this page to see the parallax scrolling effect.
+This div is just here to enable scrolling.
+Tip: Try to remove the background-attachment property to remove the scrolling effect.
+</div>
+
+</body>
+</html>
+
 
 ## Team Members
 
