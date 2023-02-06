@@ -28,7 +28,7 @@
   text-align: center;
 }
 .button {
-  background-color: #4CAF50;
+  background-color: purple;
   border: none;
   color: white;
   padding: 15px 32px;
@@ -45,9 +45,10 @@
 
 <div class="parallax">
 <div class="text-center">
-  <a class="button" href="/login"> Login</button>
+<a class="button" href="/login"> Login </a>
 </div>
 </div>
+
 
 <div style="height:1150px;background-color:#252525;font-size:24px">
 Top Student Photography Examples
