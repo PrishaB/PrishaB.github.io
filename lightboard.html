@@ -1,0 +1,158 @@
+<!-- 
+  _layouts/default.html
+  customization to original Midnight theme 
+  found through GitHub Pages Themes
+ -->
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>FRQ4 | Team 2 Github Project</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="FRQ4" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="We are working on implementing APIs from Spring project to this frontend project!" />
+<meta property="og:description" content="We are working on implementing APIs from Spring project to this frontend project!" />
+<link rel="canonical" href="http://localhost:4000/lightboard.html" />
+<meta property="og:url" content="http://localhost:4000/lightboard.html" />
+<meta property="og:site_name" content="Team 2 Github Project" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="FRQ4" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"We are working on implementing APIs from Spring project to this frontend project!","headline":"FRQ4","url":"http://localhost:4000/lightboard.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="/assets/js/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="/assets/css/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup theme-color -->
+<!-- start theme color meta headers -->
+<meta name="theme-color" content="#151515">
+<meta name="msapplication-navbutton-color" content="#151515">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<!-- end theme color meta headers -->
+
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+
+  </head>
+  <body>
+      
+    <div class="wrapper">
+
+      <section>
+        <!-- nighthawk coding society has altered arrangement and inserted navigation that is updated in independent file -->
+        <div id="title">
+          <h1><a href=https://github.com/PrishaB/Team2Reunion>Team 2 Github Project</a></h1>
+          <p>We are working on implementing APIs from Spring project to this frontend project!</p>
+          <hr>
+          <table>
+    <tr>
+        <td><a href="/">Home</a></td>
+        <td><a href="/calendar">Calendar</a></td>
+        <td><a href="/person">Person</a></td>
+        <td><a href="/calculator">Calculator</a></td>
+        <td><a href="/lightboard">Lightboard</a></td>
+
+
+    </tr>
+</table>
+
+        </div>
+
+        <!-- this is Jekyll magic, each md file in site will be inserted here -->
+        <h2 id="frq4">FRQ4</h2>
+
+<script>
+
+function generate() {
+    console.log("button clicked");
+    fetch("https://serafina.tk/api/lightboard/", {"method": "GET"})
+    // response is a RESTful "promise" on any successful fetch
+    .then(response => {
+        // check for response errors
+        if (response.status !== 200) {
+            error("GET API response failure: " + response.status)
+            return;  // api failure
+        }
+        // valid response will have JSON data
+        response.json().then(data => {
+
+        console.log(data);
+        //clear previous results
+        document.getElementById("result").innerHTML = "";
+        var board = data;
+
+        var table = document.createElement("table");
+        table.setAttribute("border", "1");
+        table.setAttribute("style", "border-collapse: collapse;");
+        var tableBody = document.createElement("tbody");
+
+        for (var i = 0; i < board.lights.length; i++) {
+            var row = document.createElement("tr");
+            for (var j = 0; j < board.lights[i].length; j++) {
+            var cell = document.createElement("td");
+            var cellText = document.createTextNode(board.lights[i][j].effectTitle);
+            var cellText2 = document.createTextNode(board.lights[i][j].rgb);
+            // set color of cell based on rgb hex code if light is on
+            if (board.lights[i][j].on) {
+                cell.setAttribute("style", "background-color: " + board.lights[i][j].rgb);
+            }
+            cell.appendChild(cellText);
+            cell.appendChild(cellText2);
+            row.appendChild(cell);
+            }
+            tableBody.appendChild(row);
+        }
+        table.appendChild(tableBody);
+        document.getElementById("result").appendChild(table);
+        })
+        // catch fetch errors
+        .catch(err => {
+            error(err + " " );
+        });
+    })
+}
+
+</script>
+
+<h3 id="click-to-generate-new-lightboard">Click to generate new lightboard!</h3>
+
+<p><button onclick="generate()">Generate</button></p>
+<div id="result">
+
+<style> 
+
+p {
+  font-size: 20px;
+  color: white;
+}
+</style>
+</div>
+
+
+      </section>
+
+    </div>
+  </body>
+</html>
