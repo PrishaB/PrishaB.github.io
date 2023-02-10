@@ -16,7 +16,7 @@
   background-image: url("images/exampleimage.jpg");
 
   /* Set a specific height */
-  min-height: 500px;
+  min-height: 1000px;
   width: 100%; 
 
   /* Create the parallax scrolling effect */
@@ -51,9 +51,8 @@
 </div>
 
 
-<div style="height:1150px;background-color:#252525;font-size:24px">
+<div style="height:1150px;background-color:#252525;font-size:24px;font-color:white">
 Top Student Photography Examples
-<img src="images/photographer-looking-out-at-a-sunrise.jpg" alt="Top Photo Example 1">
 <img src="images/autumn-poolside.jpg" alt="Top Photo Example 2">
 <img src="images/The-best-nature-photography-collection.jpg" alt="Top Photo Example 3">
 </div>
@@ -62,14 +61,14 @@ Top Student Photography Examples
 </html>
 
 
-## Team Members
+<!-- ## Team Members
 
 | Name | GitHub ID and Profile | Roles | Issues |
 | --- | --- | --- | --- |
 | Linda Liu | [@LindaLiu1202](https://github.com/LindaLiu1202) | Backend Developer |   [Issue](https://github.com/PrishaB/Team2Reunion/issues/4)  | 
 | Divyanshi Suri | [@divyanshisuri](https://github.com/divyanshisuri) | Scrum Master |  [Issue](https://github.com/PrishaB/Team2Reunion/issues/2)  |
 | Serafina Wong| [@Lychee80 ](https://github.com/Lychee80 ) | DevOps | [Issue](https://github.com/Lychee80/t2_spring_8192/issues/1)  |
-| Prisha Boreddy| [@PrishaB ](https://github.com/PrishaB) | Frontend Developer | [Issue](https://github.com/PrishaB/Team2Reunion/issues/2)   |
+| Prisha Boreddy| [@PrishaB ](https://github.com/PrishaB) | Frontend Developer | [Issue](https://github.com/PrishaB/Team2Reunion/issues/2)   | -->
 
 <style> 
 
