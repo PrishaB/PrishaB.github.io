@@ -176,15 +176,15 @@ p {
 
 <body class="align">
   <div class="grid">
-    <form href="https://httpbin.org/post" method="POST" class="form login">
+    <form href="https://httpbin.org/post" method="POST" class="form login" action="javascript:login_user()">
       <div class="form__field">
-        <label for="login__username"><svg class="icon"> <use xlink:href="#icon-user"></use></svg>
-          <span class="hidden">Username</span></label>
-        <input autocomplete="username" id="login__username" type="text" name="username" class="form__input" placeholder="Username" required>
+        <label for="email"><svg class="icon"> <use xlink:href="#icon-user"></use></svg>
+          <span class="hidden">email</span></label>
+        <input autocomplete="email" id="email" type="text" name="email" class="form__input" placeholder="Email" required>
       </div>
       <div class="form__field">
-        <label for="login__password"><svg class="icon"> <use xlink:href="#icon-lock"></use></svg><span class="hidden">Password</span></label>
-        <input id="login__password" type="password" name="password" class="form__input" placeholder="Password" required>
+        <label for="password"><svg class="icon"> <use xlink:href="#icon-lock"></use></svg><span class="hidden">Password</span></label>
+        <input id="password" type="password" name="password" class="form__input" placeholder="Password" required>
       </div>
       <div class="form__field">
         <input type="submit" value="Sign In">
@@ -192,4 +192,54 @@ p {
     </form>
     <p class="text--center">Not a member? <a href="/signup">Sign up now</a> <svg class="icon"><use xlink:href="#icon-arrow-right"></use></svg></p>
   </div>
+
+
+
+<script>
+    // URL for deployment
+    var url = "https://serafina.tk"
+    // Comment out next line for local testing
+    // url = "http://localhost:8085"
+    // Authenticate endpoint
+    const login_url = url + '/authenticate';
+    //const login_url = 'https://serafina.tk/authenticate'
+
+
+    function login_user(){
+        // Set body to include login data
+        const body = {
+            email: document.getElementById("email").value,
+            password: document.getElementById("password").value,
+        };
+
+        // Set Headers to support cross origin
+        const requestOptions = {
+            method: 'POST',
+            mode: 'cors', // no-cors, *cors, same-origin
+            cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+            credentials: 'include', // include, *same-origin, omit
+            body: JSON.stringify(body),
+            headers: {
+                "content-type": "application/json",
+            },
+        };
+
+        // Fetch JWT
+        fetch(login_url, requestOptions)
+        .then(response => {
+            // trap error response from Web API
+            if (!response.ok) {
+                const errorMsg = 'Login error: ' + response.status;
+                console.log(errorMsg);
+                return;
+            }
+            // Success!!!
+            // Redirect to Database location
+            window.location.href = "/signup";
+        })
+    }
+
+
+</script>
+
   

@@ -176,24 +176,51 @@ p {
 
 <body class="align">
   <div class="grid">
-    <form href="https://httpbin.org/post" method="POST" class="form login">
+    <form href="https://httpbin.org/post" method="POST" class="form login" form id="form">
       <div class="form__field">
         <label for="login__username"><svg class="icon"> <use xlink:href="#icon-user"></use></svg>
-          <span class="hidden">Username</span></label>
-        <input autocomplete="username" id="login__username" type="text" name="username" class="form__input" placeholder="Username" required>
+          <span class="hidden">Name</span></label>
+        <input autocomplete="Name" id="name" type="text" name="name" class="form__input" placeholder="name" required>
+      </div>
+       <div class="form__field">
+        <label for="login__dob"><svg class="icon"> <use xlink:href="#icon-user"></use></svg>
+          <span class="hidden">Date of Birth</span></label>
+        <input autocomplete="dob" id="dob" type="text" name="dob" class="form__input" placeholder="MM-DD-YYYY" required>
       </div>
       <div class="form__field">
         <label for="login__email"><svg class="icon"> <use xlink:href="#icon-user"></use></svg>
           <span class="hidden">Email</span></label>
-        <input autocomplete="email" id="login__email" type="text" name="email" class="form__input" placeholder="Email" required>
+        <input autocomplete="email" id="email" type="text" name="email" class="form__input" placeholder="Email" required>
       </div>
       <div class="form__field">
         <label for="login__password"><svg class="icon"> <use xlink:href="#icon-lock"></use></svg><span class="hidden">Password</span></label>
-        <input id="login__password" type="password" name="password" class="form__input" placeholder="Password" required>
+        <input id="password" type="password" name="password" class="form__input" placeholder="Password" required>
       </div>
       <div class="form__field">
         <input type="submit" value="Sign Up">
       </div>
+      <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
     </form>
   </div>
-  
+
+  <script>
+function create_User(){
+   const form = document.getElementById('form');
+
+form.addEventListener('submit', function(e) ) {
+    e.preventDefault();
+    const userData = new FormData(form);
+    fetch('serafina.tk/mvc/person/create/'){
+    method: 'POST',
+    body: userData,
+    
+    }
+    .then(res => res.json())
+    .then(data => console.log(data))
+       window.location.href = "/";
+       alert("Successfully signed in!");
+     
+}
+}
+
+</script>
