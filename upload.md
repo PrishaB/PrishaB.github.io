@@ -1,3 +1,4 @@
+{% include navbar.html %}
 <style>
 body {
   font-family: sans-serif;
