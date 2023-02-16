@@ -1,5 +1,48 @@
+ {% include navbar.html %}
+
+<style>
+body {
+	margin: 0;
+	background: linear-gradient(45deg, #49a09d, #5f2c82);
+	font-family: sans-serif;
+	font-weight: 100;
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+table {
+	width: 800px;
+	border-collapse: collapse;
+	overflow: hidden;
+	box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+th,
+td {
+	padding: 15px;
+	background-color: rgba(255,255,255,0.2);
+	color: #fff;
+}
+
+th {
+	text-align: center;
+  }
+
+</style>
+
 <!-- HTML table fragment for page -->
-<table>
+<br>
+<table class="center">
   <thead>
   <tr>
     <th>Photography Jokes</th>
@@ -11,6 +54,7 @@
     <!-- javascript generated data -->
   </tbody>
 </table>
+<br>
 
 <!-- Script is layed out in a sequence (without a function) and will execute when page is loaded -->
 <script>
