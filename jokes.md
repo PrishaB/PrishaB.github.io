@@ -4,8 +4,6 @@
 body {
 	margin: 0;
 	background: linear-gradient(45deg, #49a09d, #5f2c82);
-	font-family: sans-serif;
-	font-weight: 100;
 }
 
 .center {
@@ -25,6 +23,8 @@ table {
 	border-collapse: collapse;
 	overflow: hidden;
 	box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  font-family: monospace;
+  font-size: 15px;
 }
 
 th,
