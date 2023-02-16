@@ -44,7 +44,6 @@
 /* layout/base.css */
 :root {
   --htmlFontSize: 100%;
-  --bodyBackgroundColor: #2C3338;
   --bodyColor: var(--baseColor);
   --bodyFontFamily: "Open Sans";
   --bodyFontFamilyFallback: sans-serif;
@@ -60,7 +59,7 @@ html {
   font-size: var(--htmlFontSize);
 }
 body {
-  background-color: var(--bodyBackgroundColor);
+  background: linear-gradient(45deg, #49a09d, #5f2c82);
   color: var(--bodyColor);
   font-family: var(--bodyFontFamily), var(--bodyFontFamilyFallback);
   font-size: var(--bodyFontSize);
@@ -121,7 +120,7 @@ input[type="submit"] {
   --loginInputBackgroundColor: #3B4148;
   --loginInputHoverBackgroundColor: #434A52;
   --loginLabelBackgroundColor: #363B41;
-  --loginSubmitBackgroundColor: #EA4C88;
+  --loginSubmitBackgroundColor: #041836;
   --loginSubmitColor: #eee;
   --loginSubmitHoverBackgroundColor: #D44179;
 }
