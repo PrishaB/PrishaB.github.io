@@ -179,8 +179,8 @@ p {
     <form href="https://httpbin.org/post" method="POST" class="form login" action="javascript:login_user()">
       <div class="form__field">
         <label for="email"><svg class="icon"> <use xlink:href="#icon-user"></use></svg>
-          <span class="hidden">email</span></label>
-        <input autocomplete="email" id="email" type="text" name="email" class="form__input" placeholder="Email" required>
+          <span class="hidden">Email</span></label>
+        <input autocomplete="uid" id="uid" type="text" name="uid" class="form__input" placeholder="Email" required>
       </div>
       <div class="form__field">
         <label for="password"><svg class="icon"> <use xlink:href="#icon-lock"></use></svg><span class="hidden">Password</span></label>
@@ -195,21 +195,19 @@ p {
   </div>
 
 
-
 <script>
     // URL for deployment
     var url = "https://serafina.tk"
     // Comment out next line for local testing
-    // url = "http://localhost:8085"
+    url = "http://localhost:8192"
     // Authenticate endpoint
     const login_url = url + '/authenticate';
-    //const login_url = 'https://serafina.tk/authenticate'
 
 
     function login_user(){
         // Set body to include login data
         const body = {
-            email: document.getElementById("email").value,
+            email: document.getElementById("uid").value,
             password: document.getElementById("password").value,
         };
 
@@ -236,11 +234,12 @@ p {
             }
             // Success!!!
             // Redirect to Database location
-            window.location.href = "/signup";
+            window.location.href = "/gallery";
         })
     }
 
 
 </script>
+ 
 
   
