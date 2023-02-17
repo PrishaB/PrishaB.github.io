@@ -115,9 +115,11 @@ Remove or comment-out the code block below to see how the browser will fall-back
   <div class="gallery-item">
       <img class="gallery-image" src="/images/b&w1.jpg" alt=" ">
     </div>
-    
+
  </div>
+ <br><br><br> <br>
 </div>
+
 
 <!-- <script>
 function ArrayList<String> getFiles() {
