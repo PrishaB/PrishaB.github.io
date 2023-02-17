@@ -175,7 +175,7 @@ p {
 
 <body class="align">
   <div class="grid">
-    <form href="https://httpbin.org/post" method="POST" class="form login" form id="form" action="javascript:signup()">
+    <form href="https://httpbin.org/post" method="POST" class="form login" action="javascript:signup()">
       <div class="form__field">
         <label for="login__username"><svg class="icon"> <use xlink:href="#icon-user"></use></svg>
           <span class="hidden">Name</span></label>
@@ -213,7 +213,7 @@ p {
             email: document.getElementById("email").value,
             password: document.getElementById("password").value,
             name: document.getElementById("name").value,
-            dob: document.getElementById("dob").value
+            Dob: document.getElementById("dob").value
         };
 
        
@@ -222,20 +222,22 @@ p {
             method: 'POST',
             mode: 'cors', 
             cache: 'no-cache', 
+            credentials: 'include',
             body: JSON.stringify(body),
             headers: {
-                "content-type": "application/json"
+                "content-type": "application/json",
+               'Authorization': 'Bearer my-token',
             },
         };
-        window.location.href = "/gallery";
             fetch(signup, requestOptions)
             .then(response => {
                 // trap error response from Web API
                 if (!response.ok) {
-                    const errorMsg = 'Login error: ' + response.status;
-                    console.log(errorMsg);
+                    const error = 'Error: ' + response.status;
+                    console.log(error);
                
                 }
+                window.location.href = "/gallery";
                 
             })
 
