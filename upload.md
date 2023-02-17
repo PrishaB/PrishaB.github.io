@@ -1,7 +1,7 @@
 {% include navbar.html %}
 <style>
 body {
-  font-family: sans-serif;
+  background: linear-gradient(45deg, #49a09d, #5f2c82);
 }
 a {
   color: #369;
@@ -16,9 +16,11 @@ a {
 #drop-area {
   border: 2px dashed #ccc;
   border-radius: 20px;
-  width: 480px;
-  margin: 50px auto;
+  width: 500px;
+  margin: 80px auto;
   padding: 20px;
+  background-color: white;
+  font-family: "Lucida Console", "Courier New", monospace;
 }
 #drop-area.highlight {
   border-color: purple;
@@ -41,10 +43,13 @@ p {
 .button {
   display: inline-block;
   padding: 10px;
-  background: #ccc;
+  background: #041836;
   cursor: pointer;
   border-radius: 5px;
   border: 1px solid #ccc;
+  color:white;
+  font-family: "Brush ScriptM7", cursive;
+  font-size: 15px;
 }
 .button:hover {
   background: #ddd;
@@ -55,13 +60,13 @@ p {
 </style>
 <div id="drop-area">
   <form class="my-form">
-    <p>Upload multiple files with the file dialog or by dragging and dropping images onto the dashed region</p>
+    <p style="font-size:18px;">Upload multiple files with the file dialog or by dragging and dropping images onto the dashed region</p> <br>
     <input type="file" id="fileElem" multiple accept="image/*" onchange="handleFiles(this.files)">
     <label class="button" for="fileElem">Select some files</label>
   </form>
   <progress id="progress-bar" max=100 value=0></progress>
-  <div id="gallery" /></div>
-</div>
+  <div id="gallery"></div>
+
 <script>
 // ************************ Drag and drop ***************** //
 let dropArea = document.getElementById("drop-area")
