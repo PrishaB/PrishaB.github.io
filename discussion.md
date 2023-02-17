@@ -1,193 +1,300 @@
 {% include navbar.html %}
 
 <style>
-@use postcss-preset-env {
-  stage: 0;
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700);
+$green: #86BB71;
+$blue: #94C2ED;
+$orange: #E38968;
+$gray: #92959E;
+*, *:before, *:after {
+  box-sizing: border-box;
 }
 body {
-  background-color: #E9EBEE;
-  color: #1D2129;
+  background: #C5DDEB;
+  font: 14px/20px "Lato", Arial, sans-serif;
+  padding: 40px 0;
+  color: white;
 }
-#app {
-  background-color: #fff;
-  font-family: helvetica;
-  margin: 30px auto;
-  width: 500px;
-  border: 1px solid;
-  border-color: #E5E6E9 #DFE0E4 #D0D1D5;
-  border-radius: 3px;
+.container {
+  margin: 0 auto;
+  width: 750px;
+  background: #444753;
+  border-radius: 5px;
 }
-.creator {
-  position: relative;
+.people-list {
+  width:260px;
+  float: left;
+  .search {
+    padding: 20px;
+  }
+  input {
+    border-radius: 3px;
+    border: none;
+    padding: 14px;
+    color: white;
+    background: #6A6C75;
+    width: 90%;
+    font-size: 14px;
+  }
+  .fa-search {
+    position: relative;
+    left: -25px;
+  }
+  ul {
+    padding: 20px;
+    height: 770px;
+    li {
+      padding-bottom: 20px;
+    }
+  }
   img {
-    width: 40px;
-    height: 40px;
-    background-size: cover;
-    background-position: center;
-    margin: 12px 0 0 12px;
-    position: absolute;
+    float: left;
   }
-  div {
-    display: inline-block;
-    margin-left: 60px;
-    p {
-      font-size: 14px;
-      &:first-of-type {
-        &:hover {
-          text-decoration: underline;
-        }
-        cursor: pointer;
-        font-weight: bold;
-        color: #365899;
-      }
-      &:last-of-type {
-        font-size: 12px;
-        color: #90949C;
-        margin-top: -10px;
-      }
-    }
+  .about {
+    float: left;
+    margin-top: 8px;
+  }
+  .about {
+    padding-left: 8px;
+  }
+  .status {
+    color: $gray;
   }
 }
-.message {
-  font-size: 14px;
-  margin-top: 8px;
-  padding: 0 12px;
-  line-height: 18px;
-}
-.bar {
-  width: calc(100% - 24px);
-  border-top: 1px solid #E5E5E5;
-  margin: 0 12px;
-  .action-button {
-    margin-left: 20px;
-    display: inline-block;
-    font-size: 12px;
-    font-weight: bold;
-    color: #7F7F7F;
-    cursor: pointer;
-    &:before {
-      content: '';
-      display: inline-block;
-      height: 14px;
-      margin: 0 6px -3px 0;
-      width: 14px;
-      background-repeat: no-repeat;
-      background-size: auto;
-    }
-    &:first-of-type {
-      margin: 0;
-      &:before {
-        content: '';
-        background-position: -47px -164px
-      }
-    }
-    &:nth-of-type(2) {
-      &:before {
-        background-position: -32px -164px;
-      }
-    }
-    &:nth-of-type(3) {
-      &:before {
-         background-position: -45px -181px;
-      }
-    }
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-}
-.single-comment {
-  padding: 0 0 0 12px;
-  &:first-of-type {
-    border-top: 1px solid #E1E2E3;
-    padding-top: 12px;
-  }
-  &:nth-of-type(2) {
+.chat {
+  width: 490px;
+  float:left;
+  background: #F2F5F8;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  color: #434651;
+  .chat-header {
+    padding: 20px;
+    border-bottom: 2px solid white;
     img {
+      float: left;
+    }
+    .chat-about {
+      float: left;
+      padding-left: 10px;
+      margin-top: 6px;
+    }
+    .chat-with {
+      font-weight: bold;
+      font-size: 16px;
+    }
+    .chat-num-messages {
+      color: $gray;
+    }
+    .fa-star {
+      float: right;
+      color: #D8DADF;
+      font-size: 20px;
+      margin-top: 12px;
     }
   }
-  margin: 0;
-  img {
-    position: absolute;
-    width: 32px;
-    height: 32px;
-    background-size: cover;
-    background-position: center;
-    border: none;
-  }
-  .single-container {
-    padding-left: 40px;
-    padding-right: 20px;
-    span {
-      font-size: 12px;
-      margin-left: 5px;
-      &:first-of-type {
-        cursor: pointer;
-        font-weight: bold;
-        color: #365899;
-        font-size: 12px;
-        margin: 0;
-        &:hover{
-          text-decoration: underline;
-        }
+  .chat-history {
+    padding: 30px 30px 20px;
+    border-bottom: 2px solid white;
+    overflow-y: scroll;
+    height: 575px;
+    .message-data {
+      margin-bottom: 15px;
+    }
+    .message-data-time {
+      color: lighten($gray, 8%);
+      padding-left: 6px;
+    }
+    .message {
+      color: white;
+      padding: 18px 20px;
+      line-height: 26px;
+      font-size: 16px;
+      border-radius: 7px;
+      margin-bottom: 30px;
+      width: 90%;
+      position: relative;
+      &:after {
+        bottom: 100%;
+        left: 7%;
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+        border-bottom-color: $green;
+        border-width: 10px;
+        margin-left: -10px;
+      }
+    }
+    .my-message {
+      background: $green;
+    }
+    .other-message {
+      background: $blue;
+      &:after {
+        border-bottom-color: $blue;
+        left: 93%;
       }
     }
   }
-  .buttons {
-    margin-top: 0;
-    padding-left: 40px;
-    p {
-      display: inline-block;
-      color: #365899;
+  .chat-message {
+    padding: 30px;
+    textarea {
+      width: 100%;
+      border: none;
+      padding: 10px 20px;
+      font: 14px/22px "Lato", Arial, sans-serif;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      resize: none;
+    }
+    .fa-file-o, .fa-file-image-o {
+      font-size: 16px;
+      color: gray;
       cursor: pointer;
-      text-decoration: none;
-      font-size: 12px;
-      margin-right: 8px;
-      margin-top: 5px;
+    }
+    button {
+      float: right;
+      color: $blue;
+      font-size: 16px;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      background: #F2F5F8;
       &:hover {
-        text-decoration: underline;
-      }
-      &:last-of-type {
-        color: #90949C;
-        cursor: auto;
-        text-decoration: none;
+        color: darken($blue, 7%);
       }
     }
   }
 }
-.comment-section {
-  background-color: #F6F7F9;
-  margin: 0;
+.online, .offline, .me {
+    margin-right: 3px;
+    font-size: 10px;
+  }
+.online {
+  color: $green;
 }
-.input {
-  margin-top: 0;
-  background-color: #F6F7F9;
-  padding: 4px 12px 8px 12px;
-  img {
-    width: 32px;
-    height: 32px;
-    background-size: cover;
-    background-position: center;
-    border: none;
-    position: absolute;
-  }
-  textarea {
-    background: #fff;
-    border: 1px solid #BDC7D8;
-    box-sizing: border-box;
-    cursor: text;
-    width: calc(100% - 40px);
-    margin-left: 40px;
-    padding: 7px;
-    font-family: helvetica;
-    outline: none;
-    resize: none;
-    overflow: hidden;
-    height: 32px;
-  }
+.offline {
+  color: $orange;
+}
+.me {
+  color: $blue;
+}
+.align-left {
+  text-align: left;
+}
+.align-right {
+  text-align: right;
+}
+.float-right {
+  float: right;
+}
+.clearfix:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
 }
 </style>
+
 <script>
+(function(){
+  var chat = {
+    messageToSend: '',
+    messageResponses: [
+      'Why did the web developer leave the restaurant? Because of the table layout.',
+      'How do you comfort a JavaScript bug? You console it.',
+      'An SQL query enters a bar, approaches two tables and asks: "May I join you?"',
+      'What is the most used language in programming? Profanity.',
+      'What is the object-oriented way to become wealthy? Inheritance.',
+      'An SEO expert walks into a bar, bars, pub, tavern, public house, Irish pub, drinks, beer, alcohol'
+    ],
+    init: function() {
+      this.cacheDOM();
+      this.bindEvents();
+      this.render();
+    },
+    cacheDOM: function() {
+      this.$chatHistory = $('.chat-history');
+      this.$button = $('button');
+      this.$textarea = $('#message-to-send');
+      this.$chatHistoryList =  this.$chatHistory.find('ul');
+    },
+    bindEvents: function() {
+      this.$button.on('click', this.addMessage.bind(this));
+      this.$textarea.on('keyup', this.addMessageEnter.bind(this));
+    },
+    render: function() {
+      this.scrollToBottom();
+      if (this.messageToSend.trim() !== '') {
+        var template = Handlebars.compile( $("#message-template").html());
+        var context = {
+          messageOutput: this.messageToSend,
+          time: this.getCurrentTime()
+        };
+        this.$chatHistoryList.append(template(context));
+        this.scrollToBottom();
+        this.$textarea.val('');
+        // responses
+        var templateResponse = Handlebars.compile( $("#message-response-template").html());
+        var contextResponse = {
+          response: this.getRandomItem(this.messageResponses),
+          time: this.getCurrentTime()
+        };
+        setTimeout(function() {
+          this.$chatHistoryList.append(templateResponse(contextResponse));
+          this.scrollToBottom();
+        }.bind(this), 1500);
+      }
+    },
+    addMessage: function() {
+      this.messageToSend = this.$textarea.val()
+      this.render();
+    },
+    addMessageEnter: function(event) {
+        // enter was pressed
+        if (event.keyCode === 13) {
+          this.addMessage();
+        }
+    },
+    scrollToBottom: function() {
+       this.$chatHistory.scrollTop(this.$chatHistory[0].scrollHeight);
+    },
+    getCurrentTime: function() {
+      return new Date().toLocaleTimeString().
+              replace(/([\d]+:[\d]{2})(:[\d]{2})(.*)/, "$1$3");
+    },
+    getRandomItem: function(arr) {
+      return arr[Math.floor(Math.random()*arr.length)];
+    }
+  };
+  chat.init();
+  var searchFilter = {
+    options: { valueNames: ['name'] },
+    init: function() {
+      var userList = new List('people-list', this.options);
+      var noItems = $('<li id="no-items-found">No items found</li>');
+      userList.on('updated', function(list) {
+        if (list.matchingItems.length === 0) {
+          $(list.list).append(noItems);
+        } else {
+          noItems.detach();
+        }
+      });
+    }
+  };
+  searchFilter.init();
+})();
+</script>
+
+
+
+<!-- <script>
    var appId = "app";
 var main = document.createElement("DIV");
 main.id = appId;
@@ -316,4 +423,4 @@ textarea.onkeyup = function() {
   textarea.style.height = (textarea.scrollHeight) + "px";
 }
 /*  */
-</script>
+</script> -->
