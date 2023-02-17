@@ -175,7 +175,7 @@ p {
 
 <body class="align">
   <div class="grid">
-    <form href="https://httpbin.org/post" method="POST" class="form login" form id="form">
+    <form href="https://httpbin.org/post" method="POST" class="form login" form id="form" action="javascript:signup()">
       <div class="form__field">
         <label for="login__username"><svg class="icon"> <use xlink:href="#icon-user"></use></svg>
           <span class="hidden">Name</span></label>
@@ -202,24 +202,42 @@ p {
     </form>
   </div>
 
-  <script>
-function create_User(){
-   const form = document.getElementById('form');
+<script>
+    function signup() {
+        var url = "http://localhost:8192"
 
-form.addEventListener('submit', function(e) ) {
-    e.preventDefault();
-    const userData = new FormData(form);
-    fetch('serafina.tk/mvc/person/create/'){
-    method: 'POST',
-    body: userData,
-    
+        // Authenticate endpoint
+        const signup = url + '/api/person/post';
+
+        const body = {
+            email: document.getElementById("email").value,
+            password: document.getElementById("password").value,
+            name: document.getElementById("name").value,
+            dob: document.getElementById("dob").value
+        };
+
+       
+
+        const requestOptions = {
+            method: 'POST',
+            mode: 'cors', 
+            cache: 'no-cache', 
+            body: JSON.stringify(body),
+            headers: {
+                "content-type": "application/json"
+            },
+        };
+        window.location.href = "/gallery";
+            fetch(signup, requestOptions)
+            .then(response => {
+                // trap error response from Web API
+                if (!response.ok) {
+                    const errorMsg = 'Login error: ' + response.status;
+                    console.log(errorMsg);
+               
+                }
+                
+            })
+
     }
-    .then(res => res.json())
-    .then(data => console.log(data))
-       window.location.href = "/";
-       alert("Successfully signed in!");
-     
-}
-}
 
-</script>
