@@ -117,7 +117,6 @@ Remove or comment-out the code block below to see how the browser will fall-back
     </div>
 
  </div>
- <br><br><br> <br>
 </div>
 
 
