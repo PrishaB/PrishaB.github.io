@@ -44,7 +44,7 @@
 /* layout/base.css */
 :root {
   --htmlFontSize: 100%;
-  --bodyBackgroundColor: #2C3338;
+  
   --bodyColor: var(--baseColor);
   --bodyFontFamily: "Open Sans";
   --bodyFontFamilyFallback: sans-serif;
@@ -60,8 +60,8 @@ html {
   font-size: var(--htmlFontSize);
 }
 body {
-  background-color: var(--bodyBackgroundColor);
-  color: var(--bodyColor);
+  background: linear-gradient(45deg, #49a09d, #5f2c82);
+  color: white;
   font-family: var(--bodyFontFamily), var(--bodyFontFamilyFallback);
   font-size: var(--bodyFontSize);
   font-weight: var(--bodyFontWeight);
@@ -136,7 +136,7 @@ input[type="submit"] {
   padding: 1rem;
 }
 .login label {
-  background-color: var(--loginLabelBackgroundColor);
+  background-color: #2f4161;
   border-bottom-right-radius: 0;
   border-top-right-radius: 0;
   padding-inline: 1.25rem;
@@ -154,7 +154,7 @@ input[type="submit"] {
   background-color: var(--loginInputHoverBackgroundColor);
 }
 .login input[type="submit"] {
-  background-color: var(--loginSubmitBackgroundColor);
+  background-color: #041836;
   color: var(--loginSubmitColor);
   font-weight: 700;
   text-transform: uppercase;
@@ -178,20 +178,20 @@ p {
   <div class="grid">
     <form href="https://httpbin.org/post" method="POST" class="form login" action="javascript:login_user()">
       <div class="form__field">
-        <label for="email"><svg class="icon"> <use xlink:href="#icon-user"></use></svg>
+        <label for="email">
           <span class="hidden">Email</span></label>
         <input autocomplete="uid" id="uid" type="text" name="uid" class="form__input" placeholder="Email" required>
       </div>
       <div class="form__field">
-        <label for="password"><svg class="icon"> <use xlink:href="#icon-lock"></use></svg><span class="hidden">Password</span></label>
+        <label for="password"><span class="hidden">Password</span></label>
         <input id="password" type="password" name="password" class="form__input" placeholder="Password" required>
       </div>
       <div class="form__field">
         <input type="submit" value="Sign In">
       </div>
     </form>
-    <p class="text--center">Not a member? <a href="/signup">Sign up now</a> <svg class="icon"><use xlink:href="#icon-arrow-right"></use></svg></p>
-    <p class="text--center">Don't want to sign up? <a href="/gallery">Continue as Guest</a> <svg class="icon"><use xlink:href="#icon-arrow-right"></use></svg></p>
+    <p>Not a member? <a href="/signup">Sign up now</a> <svg class="icon"><use xlink:href="#icon-arrow-right"></use></svg></p>
+    <p>Don't want to sign up? <a href="/gallery">Continue as Guest</a> <svg class="icon"><use xlink:href="#icon-arrow-right"></use></svg></p>
   </div>
 
 
