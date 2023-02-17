@@ -20,7 +20,12 @@ Flexbox is used as a fallback so that browsers which don't support grid will sti
 }
 body {
   min-height: 100vh;
-  background-color: #2C3338;
+  background: linear-gradient(45deg, #49a09d, #5f2c82);
+}
+
+
+.navbar {
+background-color: transparent;
 }
 
 .container {
