@@ -1,7 +1,7 @@
 {% include navbar.html %}
 <style>
 body {
-  background: linear-gradient(45deg, #49a09d, #5f2c82);
+  background: linear-gradient(45deg, #8abeeb, #de9de0);
 }
 a {
   color: #369;
