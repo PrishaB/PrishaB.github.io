@@ -204,7 +204,7 @@ p {
 
 <script>
     function signup() {
-        var url = "http://localhost:8192"
+        var url = "https://serafina.tk"
 
         // Authenticate endpoint
         const signup = url + '/api/person/post';

@@ -199,7 +199,7 @@ p {
     // URL for deployment
     var url = "https://serafina.tk"
     // Comment out next line for local testing
-    url = "http://localhost:8192"
+    //url = "http://localhost:8192"
     // Authenticate endpoint
     const login_url = url + '/authenticate';
 
