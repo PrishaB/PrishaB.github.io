@@ -69,6 +69,13 @@ p {
   font-size: 20px;
   color: white;
 }
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
 </style>
 </head>
 <body>
@@ -81,6 +88,7 @@ p {
 <br>
 <h1>Snapshot</h1>
 </div>
+<img src="images/arrow.png" class="center" style="width: 60px; margin-top:255px;"> 
 </div>
 
 

@@ -175,7 +175,7 @@ p {
 
 <body class="align">
   <div class="grid">
-    <form href="https://httpbin.org/post" method="POST" class="form login" form id="form" action="javascript:signup()">
+    <form href="https://httpbin.org/post" method="POST" class="form login" action="javascript:signup()">
       <div class="form__field">
         <label for="login__username"><svg class="icon"> <use xlink:href="#icon-user"></use></svg>
           <span class="hidden">Name</span></label>
@@ -196,6 +196,10 @@ p {
         <input id="password" type="password" name="password" class="form__input" placeholder="Password" required>
       </div>
       <div class="form__field">
+         <label for="login__password"><svg class="icon"> <use xlink:href="#icon-lock"></use></svg><span class="hidden">Confirm password</span></label>
+        <input id="password2" type="password" name="password" class="form__input" placeholder="Confirm Password" required>
+      </div>
+      <div class="form__field">
         <input type="submit" value="Sign Up">
       </div>
       <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
@@ -204,8 +208,10 @@ p {
 
 <script>
     function signup() {
-        var url = "http://localhost:8192"
-
+      if(password ==password2){
+var url = "https://serafina.tk"
+    // Comment out next line for local testing
+     url = "http://localhost:8192"
         // Authenticate endpoint
         const signup = url + '/api/person/post';
 
@@ -213,7 +219,7 @@ p {
             email: document.getElementById("email").value,
             password: document.getElementById("password").value,
             name: document.getElementById("name").value,
-            dob: document.getElementById("dob").value
+            Dob: document.getElementById("dob").value
         };
 
        
@@ -222,22 +228,30 @@ p {
             method: 'POST',
             mode: 'cors', 
             cache: 'no-cache', 
+            credentials: 'include',
             body: JSON.stringify(body),
             headers: {
-                "content-type": "application/json"
+                "content-type": "application/json",
+               'Authorization': 'Bearer my-token',
             },
         };
-        window.location.href = "/gallery";
+
+        
             fetch(signup, requestOptions)
             .then(response => {
                 // trap error response from Web API
                 if (!response.ok) {
-                    const errorMsg = 'Login error: ' + response.status;
-                    console.log(errorMsg);
+                    const error = 'Error: ' + response.status;
+                    console.log(error);
                
                 }
+                window.location.href = "/gallery";
                 
             })
+      }else{
+         window.location.href = "/error";
+      }
+        
 
     }
 

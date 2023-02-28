@@ -191,7 +191,7 @@ p {
       </div>
     </form>
     <p>Not a member? <a href="/signup">Sign up now</a> <svg class="icon"><use xlink:href="#icon-arrow-right"></use></svg></p>
-    <p>Don't want to sign up? <a href="/gallery">Continue as Guest</a> <svg class="icon"><use xlink:href="#icon-arrow-right"></use></svg></p>
+    <p>Don't want to sign up? <a href="/guest">Continue as Guest</a> <svg class="icon"><use xlink:href="#icon-arrow-right"></use></svg></p>
   </div>
 
 
