@@ -1,426 +1,205 @@
-{% include navbar.html %}
-
 <style>
-@import url(https://fonts.googleapis.com/css?family=Lato:400,700);
-$green: #86BB71;
-$blue: #94C2ED;
-$orange: #E38968;
-$gray: #92959E;
-*, *:before, *:after {
-  box-sizing: border-box;
+*
+{
+	margin:0;
+	padding:0;
+	font font-family: tahoma,sans-serif;
+	box-sizing: border-box;
 }
-body {
-  background: #C5DDEB;
-  font: 14px/20px "Lato", Arial, sans-serif;
-  padding: 40px 0;
-  color: white;
+body
+{
+	background:#1ddced;
+	z-index: -10;
 }
-.container {
-  margin: 0 auto;
-  width: 750px;
-  background: #444753;
-  border-radius: 5px;
+.chatbox
+{
+	width:500px;
+	min-width: 390px;
+	height: 400px;
+	background:#fff;
+	padding: 25px;
+	margin:60px auto;
+	box-shadow: 3px 3px #ccc;
+  z-index=-1;
+
 }
-.people-list {
-  width:260px;
-  float: left;
-  .search {
-    padding: 20px;
-  }
-  input {
-    border-radius: 3px;
-    border: none;
-    padding: 14px;
-    color: white;
-    background: #6A6C75;
-    width: 90%;
-    font-size: 14px;
-  }
-  .fa-search {
-    position: relative;
-    left: -25px;
-  }
-  ul {
-    padding: 20px;
-    height: 770px;
-    li {
-      padding-bottom: 20px;
-    }
-  }
-  img {
-    float: left;
-  }
-  .about {
-    float: left;
-    margin-top: 8px;
-  }
-  .about {
-    padding-left: 8px;
-  }
-  .status {
-    color: $gray;
-  }
+.chatlogs
+{
+	padding:10px;
+	width:100%;
+	height:450px;
+
 }
-.chat {
-  width: 490px;
-  float:left;
-  background: #F2F5F8;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-  color: #434651;
-  .chat-header {
-    padding: 20px;
-    border-bottom: 2px solid white;
-    img {
-      float: left;
-    }
-    .chat-about {
-      float: left;
-      padding-left: 10px;
-      margin-top: 6px;
-    }
-    .chat-with {
-      font-weight: bold;
-      font-size: 16px;
-    }
-    .chat-num-messages {
-      color: $gray;
-    }
-    .fa-star {
-      float: right;
-      color: #D8DADF;
-      font-size: 20px;
-      margin-top: 12px;
-    }
-  }
-  .chat-history {
-    padding: 30px 30px 20px;
-    border-bottom: 2px solid white;
-    overflow-y: scroll;
-    height: 575px;
-    .message-data {
-      margin-bottom: 15px;
-    }
-    .message-data-time {
-      color: lighten($gray, 8%);
-      padding-left: 6px;
-    }
-    .message {
-      color: white;
-      padding: 18px 20px;
-      line-height: 26px;
-      font-size: 16px;
-      border-radius: 7px;
-      margin-bottom: 30px;
-      width: 90%;
-      position: relative;
-      &:after {
-        bottom: 100%;
-        left: 7%;
-        border: solid transparent;
-        content: " ";
-        height: 0;
-        width: 0;
-        position: absolute;
-        pointer-events: none;
-        border-bottom-color: $green;
-        border-width: 10px;
-        margin-left: -10px;
-      }
-    }
-    .my-message {
-      background: $green;
-    }
-    .other-message {
-      background: $blue;
-      &:after {
-        border-bottom-color: $blue;
-        left: 93%;
-      }
-    }
-  }
-  .chat-message {
-    padding: 30px;
-    textarea {
-      width: 100%;
-      border: none;
-      padding: 10px 20px;
-      font: 14px/22px "Lato", Arial, sans-serif;
-      margin-bottom: 10px;
-      border-radius: 5px;
-      resize: none;
-    }
-    .fa-file-o, .fa-file-image-o {
-      font-size: 16px;
-      color: gray;
-      cursor: pointer;
-    }
-    button {
-      float: right;
-      color: $blue;
-      font-size: 16px;
-      text-transform: uppercase;
-      border: none;
-      cursor: pointer;
-      font-weight: bold;
-      background: #F2F5F8;
-      &:hover {
-        color: darken($blue, 7%);
-      }
-    }
-  }
+.chat
+{
+	display: flex;
+	flex-flow: row wrap;
+	align-items: flex-start;
+	margin-bottom: 40px;
 }
-.online, .offline, .me {
-    margin-right: 3px;
-    font-size: 10px;
-  }
-.online {
-  color: $green;
+.chat .user-photo
+{
+	width: 60px;
+	height: 60px;
+	background: #ccc;
+	border-radius:50%;
+
 }
-.offline {
-  color: $orange;
+.chat .chat-message
+{
+	width:80%;
+	padding: 15px;
+	margin:5px 10px 0;
+	border-radius: 10px;
+	color:#fff;
+	font-size: 18px;
 }
-.me {
-  color: $blue;
+.user .chat-message
+{
+	background: #1adda4;
 }
-.align-left {
-  text-align: left;
+.bot .chat-message
+{
+	background:#1ddced;
+	order:-1;
 }
-.align-right {
-  text-align: right;
+.chat-form
+{
+	margin-top: 100px;
+	margin-left: 40px;
+	display: flex;
+	align-items: flex-start;
 }
-.float-right {
-  float: right;
+.chat-form input
+{
+	background: #fbfbfb;
+	width:80%;
+	height:55px;
+	border:2px solid grey;
+	border-radius: 5px;
+	padding:10px;
+	font-size: 18px;
+	color: red;
 }
-.clearfix:after {
-	visibility: hidden;
-	display: block;
-	font-size: 0;
-	content: " ";
-	clear: both;
-	height: 0;
+.head
+{
+	background-color: black;
+	color:white;
+	width: 100%;
+	height: 80px;
+	font-size: 50px;
+	padding: 10px;
+
+
 }
+.head p
+{
+	align-items: center;
+	margin-left: 150px;
+	text-transform: capitalize;
+	
+}
+
+
 </style>
 
 <script>
-(function(){
-  var chat = {
-    messageToSend: '',
-    messageResponses: [
-      'Why did the web developer leave the restaurant? Because of the table layout.',
-      'How do you comfort a JavaScript bug? You console it.',
-      'An SQL query enters a bar, approaches two tables and asks: "May I join you?"',
-      'What is the most used language in programming? Profanity.',
-      'What is the object-oriented way to become wealthy? Inheritance.',
-      'An SEO expert walks into a bar, bars, pub, tavern, public house, Irish pub, drinks, beer, alcohol'
-    ],
-    init: function() {
-      this.cacheDOM();
-      this.bindEvents();
-      this.render();
-    },
-    cacheDOM: function() {
-      this.$chatHistory = $('.chat-history');
-      this.$button = $('button');
-      this.$textarea = $('#message-to-send');
-      this.$chatHistoryList =  this.$chatHistory.find('ul');
-    },
-    bindEvents: function() {
-      this.$button.on('click', this.addMessage.bind(this));
-      this.$textarea.on('keyup', this.addMessageEnter.bind(this));
-    },
-    render: function() {
-      this.scrollToBottom();
-      if (this.messageToSend.trim() !== '') {
-        var template = Handlebars.compile( $("#message-template").html());
-        var context = {
-          messageOutput: this.messageToSend,
-          time: this.getCurrentTime()
-        };
-        this.$chatHistoryList.append(template(context));
-        this.scrollToBottom();
-        this.$textarea.val('');
-        // responses
-        var templateResponse = Handlebars.compile( $("#message-response-template").html());
-        var contextResponse = {
-          response: this.getRandomItem(this.messageResponses),
-          time: this.getCurrentTime()
-        };
-        setTimeout(function() {
-          this.$chatHistoryList.append(templateResponse(contextResponse));
-          this.scrollToBottom();
-        }.bind(this), 1500);
-      }
-    },
-    addMessage: function() {
-      this.messageToSend = this.$textarea.val()
-      this.render();
-    },
-    addMessageEnter: function(event) {
-        // enter was pressed
-        if (event.keyCode === 13) {
-          this.addMessage();
-        }
-    },
-    scrollToBottom: function() {
-       this.$chatHistory.scrollTop(this.$chatHistory[0].scrollHeight);
-    },
-    getCurrentTime: function() {
-      return new Date().toLocaleTimeString().
-              replace(/([\d]+:[\d]{2})(:[\d]{2})(.*)/, "$1$3");
-    },
-    getRandomItem: function(arr) {
-      return arr[Math.floor(Math.random()*arr.length)];
-    }
-  };
-  chat.init();
-  var searchFilter = {
-    options: { valueNames: ['name'] },
-    init: function() {
-      var userList = new List('people-list', this.options);
-      var noItems = $('<li id="no-items-found">No items found</li>');
-      userList.on('updated', function(list) {
-        if (list.matchingItems.length === 0) {
-          $(list.list).append(noItems);
-        } else {
-          noItems.detach();
-        }
-      });
-    }
-  };
-  searchFilter.init();
-})();
+var trigger = [
+	["hi","hey","hello"], 
+	["how are you", "how is life", "how are things"],
+	["what are you doing", "what is going on"],
+	["how old are you"],
+	["what is your task","what do you do"],
+	["who are you", "are you human", "are you bot", "are you human or bot"],
+	["who created you", "who made you"],
+	["your name please",  "your name", "may i know your name", "what is your name"],
+	["i love you"],
+	["happy", "good"],
+	["bad", "bored", "tired"],
+	["help me", "tell me story", "tell me joke"],
+	["ah", "yes", "ok", "okay", "nice", "thanks", "thank you"],
+	["bye", "good bye", "goodbye", "see you later"],
+	
+];
+var reply = [
+	["Hi","Hey","Hello"], 
+	["Fine", "Pretty well", "Fantastic"],
+	["Nothing much", "About to go to sleep", "Can you guest?", "I don't know actually"],
+	["I am 1 day old"],
+	["my task is to help you out"],
+	["I am just a bot", "I am a bot. What are you?"],
+	[ "My God"],
+	["I am nameless", "I don't have a name"],
+	["I love you too", "Me too"],
+	["Have you ever felt bad?", "Glad to hear it"],
+	["Why?", "Why? You shouldn't!", "Try watching TV"],
+	["I will", "What about?"],
+	["Tell me a story", "Tell me a joke", "Tell me about yourself", "You are welcome"],
+	["Bye", "Goodbye", "See you later"]
+
+];
+var alternative = ["Haha...", "Eh..."];
+document.querySelector("#input").addEventListener("keypress", function(e){
+	var key = e.which || e.keyCode;
+	if(key === 13){ //Enter button
+		var input = document.getElementById("input").value;
+		document.getElementById("user").innerHTML = input;
+		output(input);
+	}
+});
+function output(input){
+	try{
+		var product = input + "=" + eval(input);
+	} catch(e){
+		var text = (input.toLowerCase()).replace(/[^\w\s\d]/gi, ""); //remove all chars except words, space and 
+		text = text.replace(/ a /g, " ").replace(/i feel /g, "").replace(/whats/g, "what is").replace(/please /g, "").replace(/ please/g, "");
+		if(compare(trigger, reply, text)){
+			var product = compare(trigger, reply, text);
+		} else {
+			var product = alternative[Math.floor(Math.random()*alternative.length)];
+		}
+	}
+	document.getElementById("chatbot").innerHTML = product;
+	
+	document.getElementById("input").value = ""; //clear input value
+}
+function compare(arr, array, string){
+	var item;
+	for(var x=0; x<arr.length; x++){
+		for(var y=0; y<array.length; y++){
+			if(arr[x][y] == string){
+				items = array[x];
+				item =  items[Math.floor(Math.random()*items.length)];
+			}
+		}
+	}
+	return item;
+}
 </script>
 
-
-
-<!-- <script>
-   var appId = "app";
-var main = document.createElement("DIV");
-main.id = appId;
-document.body.appendChild(main);
-var app = document.getElementById('app');
-var Hour = React.createClass({
-  getDefaultProps: function() {
-    return {
-      time: 42
-    }
-  },
-  render: function() {
-    return (<p>{this.props.time} h</p>);
-  }
-})
-var Creator = React.createClass({
-  getDefaultProps: function() {
-    return {
-      name: "Linda05"
-    }
-  },
-  render: function() {
-    return (
-      <div className="creator">
-        <img />
-        <div>
-          <p>{this.props.name}</p>
-          <Hour time={4} />
-        </div>
-      </div>
-    )
-  }
-});
-var Message = React.createClass({
-  render: function() {
-    return (
-      <p className="message">Omg it's snowing outside!</p>
-    )
-  }
-});
-var Action = React.createClass({
-  render: function() {
-    return (
-      <p className="action-button" >{this.props.text}</p>
-    );
-  }
-})
-var Bar = React.createClass({
-  render: function() {
-    return (
-      <div className="bar">
-        <Action text={"Comment"} />
-      </div>
-    )
-  }
-});
-var Comment = React.createClass({
-  getDefaultProps: function() {
-    return{name: "Douglas Adams"}
-  },
-  render: function() {
-    return (
-      <div className="single-comment">
-        <img />
-        <div className="single-container">
-          <span>{this.props.name}</span>
-          <span>{this.props.children}</span>
-        </div>
-        <div className="buttons">
-          <Hour time={this.props.time} />
-        </div>
-      </div>
-    );
-  }
-});
-var CommentSection = React.createClass({
-  getInitialState: function() {
-    return {
-      comments: []
-    }
-  },
-  _eachComment: function(text, i) {
-    return (<Comment key={i} index={i} removeComment={this._deleteComment}>{text}</Comment>)
-  },
-  _addComment: function(text) {
-    var arr = this.state.comments
-    arr.push(text);
-    this.setState({comments: arr})
-  },
-  _handleKeyPress: function(e) {
-    if (e.key === "Enter") {
-      this._addComment(this.refs.newText.value);
-      this.refs.newText.value = "";
-      e.preventDefault();
-    }
-  },
-  render: function() {
-    return (
-      <div>
-        <div className="comment-section">
-          <Comment name={"Linda05"} time={3}>@serafina06 I really like your picture!...</Comment>
-          <Comment name={"Serafina06"} time={2}>Thank you so much!</Comment>
-          {this.state.comments.map(this._eachComment)}
-        </div>
-        <div className="input">
-          <img />
-          <textarea ref="newText" onKeyPress={this._handleKeyPress} placeholder="Write a comment..."/>
-        </div>
-      </div>
-    );
-  }
-});
-var Post = (
-  <div>
-    <Creator />
-    <Message />
-    <Bar />
-    <CommentSection />
-  </div>
-);
-ReactDOM.render(Post, app);
-// Normal js
-var textarea = document.getElementsByTagName('textarea')[0];
-textarea.onkeyup = function() {
-  textarea.style.height = "34px";
-  textarea.style.height = (textarea.scrollHeight) + "px";
-}
-/*  */
-</script> -->
+<html>
+<head>
+	<title>chatbot</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil">
+</head>
+<body>
+    <div class="head">
+    	<p >a simple chatbot</p>
+    </div>
+<div class="chatbox">
+	<div class="chatlogs">
+		<div class="chat user">
+			<div class="user-photo"></div>
+                 <div class="chat-message">user: <span id="user"></span></div>
+             </div>
+	<div class="chat bot">
+		<div class="user-photo"></div>
+	<div class="chat-message">chatbot: <span id="chatbot"></span></div>
+	</div>
+	<div class="chat-form"><input id="input" type="text" placeholder="say anything..." autocomplete="off"/></div>
+<script type="text/javascript" src="script.js"></script>	
+</div>
+</body>
+</html>
