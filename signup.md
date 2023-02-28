@@ -196,6 +196,10 @@ p {
         <input id="password" type="password" name="password" class="form__input" placeholder="Password" required>
       </div>
       <div class="form__field">
+         <label for="login__password"><svg class="icon"> <use xlink:href="#icon-lock"></use></svg><span class="hidden">Confirm password</span></label>
+        <input id="password2" type="password" name="password" class="form__input" placeholder="Confirm Password" required>
+      </div>
+      <div class="form__field">
         <input type="submit" value="Sign Up">
       </div>
       <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
@@ -204,8 +208,10 @@ p {
 
 <script>
     function signup() {
-        var url = "https://serafina.tk"
-
+      if(password ==password2){
+var url = "https://serafina.tk"
+    // Comment out next line for local testing
+     url = "http://localhost:8192"
         // Authenticate endpoint
         const signup = url + '/api/person/post';
 
@@ -229,6 +235,8 @@ p {
                'Authorization': 'Bearer my-token',
             },
         };
+
+        
             fetch(signup, requestOptions)
             .then(response => {
                 // trap error response from Web API
@@ -240,6 +248,10 @@ p {
                 window.location.href = "/gallery";
                 
             })
+      }else{
+         window.location.href = "/error";
+      }
+        
 
     }
 
