@@ -205,17 +205,26 @@ p {
       <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
     </form>
   </div>
+  
 
 <script>
+
+  
     function signup() {
-      if(password ==password2){
+      var password= document.getElementById("password").value
+var password2= document.getElementById("password2").value
+console.log(password);
+console.log(password2);
 var url = "https://serafina.tk"
     // Comment out next line for local testing
      url = "http://localhost:8192"
         // Authenticate endpoint
         const signup = url + '/api/person/post';
-
-        const body = {
+if(password!=password2){
+  console.log(failure);
+  window.location.href = "/error";
+}else {
+  const body = {
             email: document.getElementById("email").value,
             password: document.getElementById("password").value,
             name: document.getElementById("name").value,
@@ -237,6 +246,7 @@ var url = "https://serafina.tk"
         };
 
         
+
             fetch(signup, requestOptions)
             .then(response => {
                 // trap error response from Web API
@@ -248,10 +258,8 @@ var url = "https://serafina.tk"
                 window.location.href = "/gallery";
                 
             })
-      }else{
-         window.location.href = "/error";
-      }
+}
         
-
+  
     }
 
