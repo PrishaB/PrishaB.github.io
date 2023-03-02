@@ -212,17 +212,15 @@ p {
   
     function signup() {
       var password= document.getElementById("password").value
-var password2= document.getElementById("password2").value
-console.log(password);
-console.log(password2);
-var url = "https://serafina.tk"
+      var password2= document.getElementById("password2").value
+    var url = "https://serafina.tk"
     // Comment out next line for local testing
      url = "http://localhost:8192"
         // Authenticate endpoint
         const signup = url + '/api/person/post';
+        
 if(password!=password2){
-  console.log(failure);
-  window.location.href = "/error";
+    alert("Try again, passwords don't match");
 }else {
   const body = {
             email: document.getElementById("email").value,
