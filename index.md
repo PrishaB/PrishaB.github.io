@@ -86,7 +86,7 @@ p {
 <br>
 <a class="button" href="/login"> Login </a>
 <br>
-<h1>Snapshot</h1>
+<h1>Snapshot!</h1>
 </div>
 <img src="images/arrow.png" class="center" style="width: 60px; margin-top:255px;"> 
 </div>
