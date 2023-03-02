@@ -96,7 +96,7 @@ p {
  <br> <br> <br>
 <h2>Top Student Photography Examples<h2>
 <br>
-<img src="images/photo3.jpg"  style="height: 600px;">
+<img src="images/photo3.jpg"  style="height: 601px;">
 <img src="images/photo4.jpg"  style="height: 600px;">
 <img src="images/photo2.jpg"  style="height: 600px;">
 
