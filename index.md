@@ -112,7 +112,7 @@ p {
 
 <br>
 <img src="images/b&w1.jpg"  style="height: 601px;">
-<img src="images/b&w2.jpg"  style="height: 600px;">
+<img src="images/b&w2.jpg"  style="height: 601px;">
 <img src="images/b&w3.jpg"  style="height: 600px;">
 </div>
 
